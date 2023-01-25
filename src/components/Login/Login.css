@@ -1,0 +1,40 @@
+.resetPwd {
+  font-size: 14px;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+}
+.reset {
+  text-decoration: none;
+  font-weight: 500;
+}
+.reset a {
+  color: black;
+  text-decoration: underline;
+}
+.redirectLog {
+  font-size: 14px;
+}
+.redirectLog a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #46a997;
+}
+.redirectLog a:hover {
+  text-decoration: underline;
+}
+.createAccLink {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 15px 0;
+}
+.support {
+  margin-left: 10px;
+}
+.support a {
+  color: #46a997;
+  text-decoration: none;
+}
+.support :hover {
+  text-decoration: underline;
+}
