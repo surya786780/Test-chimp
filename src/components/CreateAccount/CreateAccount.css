@@ -40,6 +40,7 @@
   font-size: 14px;
   font-weight: bold;
 }
+
 .or {
   margin-top: 20px;
   color: #878991;
@@ -54,14 +55,18 @@
 .createAcc {
   width: 100%;
   background-color: #46a997;
-  font-size: 14px;
-  color: white;
   padding: 14px;
   margin-top: 20px;
   border-radius: 5px;
-  font-weight: bold;
   text-align: center;
   cursor: pointer;
+  color: white;
+}
+.createAcc a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
 }
 .loginLink {
   margin: 32px 0;
@@ -92,6 +97,6 @@
   margin-top: 15px;
   font-size: 24px;
 }
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" -25, "opsz" 48;
+.textboxs {
+  width: 100%;
 }

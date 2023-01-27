@@ -1,10 +1,21 @@
 import React, { useState } from "react";
 import Logo from "../../assets/testgorilla.svg";
 import TextField from "@mui/material/TextField";
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./CreateAccount.css";
+import * as Yup from "yup";
+import { Field, Form, Formik } from "formik";
+import { Typography } from "@mui/material";
+
+const emailSchema = Yup.object().shape({
+  email: Yup.string()
+    .required("!This field is required")
+    .email("Invalid format"),
+});
+
 function CreateAccount() {
+  const [err, setErr] = useState(0);
   const [mail, setMail] = useState("");
   const [status, setStatus] = useState("! field is required");
 
@@ -42,7 +53,7 @@ function CreateAccount() {
               <div className="underlineDiv"></div>
             </div>
             <div className="outlinedBox d-flex mt-4">
-              <TextField
+              {/* <TextField
                 fullWidth
                 error
                 label="Work Email"
@@ -51,12 +62,56 @@ function CreateAccount() {
                 onChange={(e) => {
                   setMail(e.target.value);
                 }}
-              />
-              <span className="material-symbols-outlined mailIcon">mail</span>
+              /> */}
+              <div className="textboxs ">
+                <Formik
+                  validationSchema={emailSchema}
+                  initialValues={{ email: "" }}
+                  onSubmit={(values) => {
+                    console.log(values);
+                  }}
+                >
+                  <Form>
+                    <Field>
+                      {({ field, form }) => {
+                        return (
+                          <>
+                            <TextField
+                              fullWidth
+                              label="Work Email *"
+                              name="email"
+                              id="fullWidth"
+                              value={form.values.email}
+                              onChange={form.handleChange("email")}
+                              onBlur={form.handleBlur("email")}
+                              error={err == 1 ? `${"error"}` : ""}
+                            />
+                            {(() => {
+                              if (form.touched.email && form.errors.email) {
+                                setErr(1);
+                                return (
+                                  <Typography
+                                    variant="caption"
+                                    sx={{ color: "#D42F2F" }}
+                                  >
+                                    {`${form.errors.email}`}
+                                  </Typography>
+                                );
+                              } else setErr(0);
+                            })()}
+                          </>
+                        );
+                      }}
+                    </Field>
+                  </Form>
+                </Formik>
+              </div>
+              {/* <span className="material-symbols-outlined mailIcon">mail</span> */}
             </div>
-
-            <div className="createAcc" onClick={sendMail}>
-              Create my Account
+            <div className="createAcc mt-4" onClick={sendMail}>
+              <Link to="/customer-info">
+                <div>Create my Account</div>
+              </Link>
             </div>
             <div className="loginLink d-flex">
               Already have a TestGorilla account?
