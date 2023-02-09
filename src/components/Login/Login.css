@@ -28,13 +28,13 @@
   font-weight: 400;
   margin: 15px 0;
 }
-.support {
+.supportSpan {
   margin-left: 10px;
 }
-.support a {
+.supportSpan a {
   color: #46a997;
   text-decoration: none;
 }
-.support :hover {
+.supportSpan :hover {
   text-decoration: underline;
 }

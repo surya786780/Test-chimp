@@ -1,37 +1,40 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../../assets/testgorilla.svg";
 import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import axios from "axios";
 import "./CreateAccount.css";
 import * as Yup from "yup";
 import { Field, Form, Formik } from "formik";
 import { Typography } from "@mui/material";
-
-const emailSchema = Yup.object().shape({
-  email: Yup.string()
-    .required("!This field is required")
-    .email("Invalid format"),
-});
+import { UserContext } from "../../pages/Router";
 
 function CreateAccount() {
-  const [err, setErr] = useState(0);
-  const [mail, setMail] = useState("");
-  const [status, setStatus] = useState("! field is required");
+  const navigate = useNavigate();
 
-  function sendMail() {
-    //! /registration/validateEmail  - java
-    //! /register  - node
-    axios
-      .post(`${import.meta.env.VITE_API_KEY}/register`, {
-        email: mail,
-      })
-      .then((response) => {
-        console.log(response);
-        setStatus(response.data.message);
-      })
-      .catch((res) => console.log(res));
-  }
+  const [data, setData] = useContext(UserContext);
+  const [status, setStatus] = useState("");
+
+  const emailSchema = Yup.object().shape({
+    email: Yup.string().required(""),
+  });
+
+  const [req, setRequired] = useState(0);
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    if (req == 0) {
+    }
+    setOpen(!open);
+  };
+
+  //   //! /registration/validateEmail  - java
+  //   //! /register  - node
+
   return (
     <div className="login">
       <div className="innerLogin">
@@ -53,22 +56,30 @@ function CreateAccount() {
               <div className="underlineDiv"></div>
             </div>
             <div className="outlinedBox d-flex mt-4">
-              {/* <TextField
-                fullWidth
-                error
-                label="Work Email"
-                id="outlined-error-helper-text fullWidth"
-                helperText={`${status}`}
-                onChange={(e) => {
-                  setMail(e.target.value);
-                }}
-              /> */}
               <div className="textboxs ">
                 <Formik
                   validationSchema={emailSchema}
                   initialValues={{ email: "" }}
                   onSubmit={(values) => {
                     console.log(values);
+                    axios
+                      .post(
+                        `${import.meta.env.VITE_APP_KEY}/authenticate/register`,
+                        values
+                      )
+                      .then((res) => {
+                        if (res.data.status === "SUCCESS") {
+                          setOpen(false);
+                          values["userId"] = res.data.data.id;
+                          setData({ ...values, ...data });
+                          navigate("/customer-info", { replace: true });
+                        }
+                      })
+                      .catch((err) => {
+                        setOpen(false);
+
+                        setStatus(err.response.data.error.message);
+                      });
                   }}
                 >
                   <Form>
@@ -78,17 +89,21 @@ function CreateAccount() {
                           <>
                             <TextField
                               fullWidth
-                              label="Work Email *"
+                              label="Work Email "
                               name="email"
                               id="fullWidth"
                               value={form.values.email}
                               onChange={form.handleChange("email")}
                               onBlur={form.handleBlur("email")}
-                              error={err == 1 ? `${"error"}` : ""}
+                              error={
+                                form.touched.email && form.errors.email
+                                  ? true
+                                  : false
+                              }
+                              required={req == 1 ? true : false}
                             />
                             {(() => {
                               if (form.touched.email && form.errors.email) {
-                                setErr(1);
                                 return (
                                   <Typography
                                     variant="caption"
@@ -97,22 +112,37 @@ function CreateAccount() {
                                     {`${form.errors.email}`}
                                   </Typography>
                                 );
-                              } else setErr(0);
+                              }
                             })()}
                           </>
                         );
                       }}
                     </Field>
+                    <p className="status">{status}</p>
+                    <div className="createAcc mt-4">
+                      <button
+                        type="submit"
+                        className="subBtn"
+                        onClick={handleToggle}
+                      >
+                        Create my Account
+                      </button>
+                      <Backdrop
+                        sx={{
+                          color: "#fff",
+                          zIndex: (theme) => theme.zIndex.drawer + 1,
+                        }}
+                        open={open}
+                        // onClick={handleClose}
+                      >
+                        <CircularProgress color="inherit" />
+                      </Backdrop>
+                    </div>
                   </Form>
                 </Formik>
               </div>
-              {/* <span className="material-symbols-outlined mailIcon">mail</span> */}
             </div>
-            <div className="createAcc mt-4" onClick={sendMail}>
-              <Link to="/customer-info">
-                <div>Create my Account</div>
-              </Link>
-            </div>
+
             <div className="loginLink d-flex">
               Already have a TestGorilla account?
               <div className="redirect">

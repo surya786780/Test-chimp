@@ -61,6 +61,7 @@
   text-align: center;
   cursor: pointer;
   color: white;
+  text-decoration: none;
 }
 .createAcc a {
   text-decoration: none;
@@ -99,4 +100,19 @@
 }
 .textboxs {
   width: 100%;
+}
+
+.status {
+  font-size: 14px;
+  color: red;
+}
+.subBtn {
+  background: none;
+  border-style: none;
+  color: white;
+}
+.butn {
+  border-style: none;
+  background-color: inherit;
+  /* padding: ; */
 }

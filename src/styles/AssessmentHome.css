@@ -1,0 +1,169 @@
+.assessment {
+  margin: 0 48px;
+  padding: 28px 64px;
+  padding-top: 0;
+}
+
+.createNew {
+  padding: 28px 64px;
+}
+.createNew p {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.Plusicon {
+  padding: 0 18px;
+  background-color: #46a997;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+}
+.activeBtn {
+  margin: 0 0 48px;
+}
+.activeBtn p {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.active1 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  padding: 0 12px;
+}
+.bgActive {
+  background-color: #276678;
+  color: white;
+  font-weight: 600;
+}
+.active {
+  border: 1px solid black;
+  padding: 0 12px;
+  font-size: 16px;
+}
+.box {
+  background-color: #f5f6f6;
+}
+.comps {
+  width: 100%;
+}
+.imgComps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vdoImg {
+  width: 960px;
+  height: 480px;
+}
+.archiveImg {
+  width: 250px;
+  height: 256px;
+}
+.noArchieve {
+  font-size: 20px;
+}
+.archieveComp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer {
+  min-height: 110px;
+  color: inherit;
+  border-top: 1px solid #d5d3d3;
+}
+
+/* //! My candidate page  */
+.inputBx {
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.searchBox {
+  background-color: white;
+}
+.dropDownBx div {
+  margin-right: 7px;
+  background-color: white;
+  width: 191px;
+}
+.nothingImg {
+  margin: 48px 0 0;
+}
+.crt {
+  color: #46a997;
+  margin-right: 10px;
+}
+.crt:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* //! Tests Component */
+
+.testComp {
+  justify-content: space-between;
+  margin-bottom: 21px;
+  align-items: center;
+}
+.testComp div {
+  width: 290px;
+  background-color: white;
+  margin-right: 0px;
+}
+.cardsDiv .card {
+  margin: 0 48px 48px 0;
+}
+/* //! free card */
+.card {
+  width: 290px;
+  background-color: white;
+  padding: 20px;
+  cursor: pointer;
+}
+.cardHead {
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.cardBody {
+  font-size: 14px;
+}
+.cardFooter {
+  padding: 8px 0 0;
+}
+.timingForTest {
+  /* color: gray; */
+  fill: white;
+  font-size: 14px;
+  padding: 10px 10px 10px 0;
+  font-weight: 300;
+}
+.detailsForTest {
+  z-index: 99;
+}
+.detailsForTest span {
+  border-radius: 5px;
+  background-color: #ededed;
+  font-size: 20px;
+  color: gray;
+}
+.material-symbols-outlined {
+  margin-right: 0 !important;
+  z-index: 99;
+}
+.testDetails {
+  display: flex;
+  margin: 0 16px;
+  padding: 0 16px;
+  border: 1px solid black;
+  text-align: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.testDetails:hover {
+  background-color: #ededed;
+}

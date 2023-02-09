@@ -1,0 +1,24 @@
+.divs a {
+  /* justify-content: space-between; */
+  text-decoration: none;
+  font-size: 14px;
+}
+.skip {
+  background-color: #ededed;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.acc {
+  width: 100%;
+}
+.finishBtn {
+  width: 100%;
+  background-color: #46a997;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+}

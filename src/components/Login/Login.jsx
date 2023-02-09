@@ -46,15 +46,15 @@ function Login() {
               <div className="outlinedBox d-flex mt-4">
                 <TextField
                   fullWidth
-                  error
+                  // error
                   label="Email *"
                   id="outlined-error-helper-text fullWidth"
-                  helperText="! This field is Required."
+                  // helperText="! This field is Required."
                   onChange={(e) => {
                     setMail(e.target.value);
                   }}
                 />
-                <span className="material-symbols-outlined mailIcon">mail</span>
+                {/* <span className="material-symbols-outlined mailIcon">mail</span> */}
               </div>
 
               <div className="passwordField mt-4">
@@ -96,7 +96,12 @@ function Login() {
                   <Link to="/forgot-password">set or reset password</Link>
                 </div>
               </div>
-              <div className="createAcc">Log in</div>
+              <div className="createAcc">
+                <Link to="/login">
+                  <div className="">Log in</div>
+                </Link>
+              </div>
+
               <div className="createAccLink d-flex">
                 Don't have an account?
                 <div className="redirectLog">
@@ -106,7 +111,7 @@ function Login() {
 
               <div className="createAccLink">
                 Are you candidate?
-                <span className="support">
+                <span className="supportSpan">
                   <a href="https://support.testgorilla.com/hc/en-us/articles/9028804621467">
                     Click here for support
                   </a>

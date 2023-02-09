@@ -10,7 +10,7 @@ function ResetPassword() {
         <div className="innerLogin">
           <div className="center-container">
             <img className="logo" src={Logo} alt="" />
-            <p className="freePlan">Get started with your Free plan.</p>
+            <p className="freePlan">Reset your password.</p>
 
             <div className="mailAuths">
               <div className="outlinedBox d-flex mt-4">

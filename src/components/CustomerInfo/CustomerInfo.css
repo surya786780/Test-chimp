@@ -1,0 +1,21 @@
+.offer {
+  font-size: 16px;
+  margin: 16px 0;
+}
+.fields {
+  margin: 27px 0;
+}
+.textField {
+  margin-bottom: 20px;
+}
+.textboxs .field {
+  margin-top: 25px;
+}
+.butn {
+  color: white;
+  background: none;
+}
+.butn button {
+  border-style: none;
+  box-shadow: none;
+}

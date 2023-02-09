@@ -19,9 +19,6 @@ function TextFields({ label, helperText }) {
                   helperText={err == 1 ? `${helperText}` : ""}
                   error={err == 1 ? "error" : ""}
                   {...fieldProps}
-                  // onChange={(e) => {
-                  //   setMail(e.target.value);
-                  // }}
                 />;
               }}
             </Field>

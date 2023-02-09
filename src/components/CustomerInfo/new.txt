@@ -1,0 +1,157 @@
+<div className="textboxs">
+              <Formik
+                initialValues={{
+                  firstName: "",
+                  lastName: "",
+                  phoneNumber: "",
+                  companyName: "",
+                  jobTitle: "",
+                  trackingSystem: "",
+                }}
+                onSubmit={(values, actions) => {
+                  setTimeout(() => {
+                    console.log(JSON.stringify(values, null, 2));
+                    actions.setSubmitting(false);
+                  }, 1000);
+                }}
+              >
+                {(props) => (
+                  <form onSubmit={props.handleSubmit}>
+                    <TextField
+                      className="field"
+                      fullWidth
+                      label="First Name *"
+                      name="firstName"
+                      value={props.values.firstName}
+                      onChange={props.handleChange("firstName")}
+                      onBlur={props.handleBlur("firstName")}
+                      error={
+                        props.touched.firstName && props.errors.firstName
+                          ? true
+                          : false
+                      }
+                    />
+                    {(() => {
+                      if (props.touched.firstName && props.errors.firstName) {
+                        return (
+                          <Typography
+                            variant="caption"
+                            sx={{ color: "#D42F2F" }}
+                          >
+                            {`${props.errors.firstName}`}
+                          </Typography>
+                        );
+                      }
+                    })()}
+
+                    <TextField
+                      className="field"
+                      fullWidth
+                      label="Last Name *"
+                      name="lastName"
+                      value={props.values.lastName}
+                      onChange={props.handleChange("lastName")}
+                      onBlur={props.handleBlur("lastName")}
+                      error={
+                        props.touched.lastName && props.errors.lastName
+                          ? true
+                          : false
+                      }
+                    />
+
+                    <TextField
+                      className="field"
+                      fullWidth
+                      label="Phone Number *"
+                      name="phoneNumber"
+                      value={props.values.phoneNumber}
+                      onChange={props.handleChange("phoneNumber")}
+                      onBlur={props.handleBlur("phoneNumber")}
+                      error={
+                        props.touched.phoneNumber && props.errors.phoneNumber
+                          ? true
+                          : false
+                      }
+                    />
+
+                    <TextField
+                      className="field"
+                      fullWidth
+                      label="Company Name *"
+                      name="companyName"
+                      value={props.values.companyName}
+                      onChange={props.handleChange("companyName")}
+                      onBlur={props.handleBlur("companyName")}
+                      error={
+                        props.touched.companyName && props.errors.companyName
+                          ? true
+                          : false
+                      }
+                    />
+                    <TextField
+                      className="field"
+                      fullWidth
+                      label="What is your Job title?"
+                      name="jobTitle"
+                      value={props.values.jobTitle}
+                      onChange={props.handleChange("jobTitle")}
+                      onBlur={props.handleBlur("jobTitle")}
+                    />
+                    <TextField
+                      className="field"
+                      fullWidth
+                      label="What Applicant Tracking System are you using?"
+                      name="trackingSystem"
+                      value={props.values.trackingSystem}
+                      onChange={props.handleChange("trackingSystem")}
+                      onBlur={props.handleBlur("trackingSystem")}
+                    />
+                    {/* {props.errors.name && (
+                      <div id="feedback">{props.errors.name}</div>
+                    )} */}
+                    <div className="createAcc mt-4">
+                      {/* <Link to="/"> */}
+                      <button type="submit" className="butn">
+                        Next
+                      </button>
+                      {/* </Link> */}
+                    </div>
+                  </form>
+                )}
+              </Formik>
+            </div>
+
+
+
+            <div className="redirectLink">
+                    <div className="createAcc mt-4">
+                      <Button type="submit">Next</Button>
+                    </div>
+                  </div>
+
+
+
+
+
+                  <TextField
+                            fullWidth
+                            label="Last Name *"
+                            name="lastName"
+                            value={form.values.lastName}
+                            onChange={form.handleChange("lastName")}
+                            onBlur={form.handleBlur("lastName")}
+                            error={err == 1 ? `${"error"}` : ""}
+                          />
+                          {(() => {
+                            if (form.touched.lastName && form.errors.lastName) {
+                              setErr(1);
+                              return (
+                                <Typography
+                                  variant="caption"
+                                  sx={{ color: "red" }}
+                                >
+                                  {`${form.errors.lastName}`}
+                                </Typography>
+                              );
+                            } else setErr(0);
+                          })()}

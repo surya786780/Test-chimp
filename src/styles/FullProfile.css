@@ -1,0 +1,28 @@
+.splitComp {
+  padding-top: 40px;
+  background-color: #f5f6f6;
+}
+.topBar {
+  background-color: white;
+  border-bottom: 1px solid gray;
+}
+.topBarContents {
+  margin: 20px 0;
+  padding: 0 30px;
+}
+
+/* //? profile */
+.myProfile {
+  padding: 24px;
+  background-color: white;
+}
+.personalInfo {
+  margin: 20px 0;
+}
+.personalInfo p {
+  font-size: 16px;
+  font-weight: 600;
+}
+.MuiFormControl-root {
+  padding: 0 0 28px !important;
+}
