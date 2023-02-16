@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
 }
+.premiumIcon {
+  height: 24px;
+  width: 24px;
+}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -28,4 +32,13 @@ body {
   position: fixed;
   margin-bottom: 20px;
   margin-right: 20px;
+}
+.font-small {
+  font-size: 14px;
+}
+.pri-color {
+  color: #46a997;
+}
+.border-top {
+  border-top: 1px solid #dff5f1;
 }

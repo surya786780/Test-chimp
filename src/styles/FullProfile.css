@@ -23,6 +23,224 @@
   font-size: 16px;
   font-weight: 600;
 }
-.MuiFormControl-root {
-  padding: 0 0 28px !important;
+.infoBox div {
+  margin-bottom: 20px;
+}
+
+.saveChangesBtn button {
+  background-color: #f5f6f6;
+  color: gray;
+}
+.saveBtn {
+  padding: 13px 13px;
+  background-color: #46a997;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+}
+/* .langSelect div {
+  margin-bottom: 20px;
+} */
+
+/* //! Notification */
+
+.info {
+  background-color: rgba(39, 102, 120, 0.1);
+  padding: 12px 16px;
+  margin: 0 0 32px;
+}
+.errIcon {
+  margin-right: 10px !important;
+}
+.info .para {
+  font-size: 14px;
+  line-height: 24px;
+}
+.checkNotify span {
+  font-size: 14px;
+}
+.receiveSummary {
+  margin: -8px 0 45px 30px;
+  font-size: 12px;
+}
+
+/* //* my company */
+
+.myCompany {
+  background-color: white;
+  padding: 24px;
+}
+.upload {
+  width: 86%;
+  text-align: center;
+  background-color: #f5f6f6;
+  margin-right: 32px;
+}
+.premiumSvg {
+  width: 25px;
+  height: 25px;
+}
+.logoUpload {
+  padding: 82px 0;
+}
+.logoUpload span {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.colorPicker {
+  margin-right: 32px;
+}
+.react-colorful {
+  width: 243px !important;
+  height: 200px !important;
+  border: 1px solid gray;
+}
+.react-colorful__pointer {
+  height: 17px !important;
+  width: 17px !important;
+}
+.react-colorful__hue {
+  height: 20px;
+  border-radius: 0 !important;
+  margin: 10px 7px;
+}
+.previewBtn {
+  color: white;
+  font-weight: 500;
+  background-color: #46a997;
+  padding: 7px 15px;
+  border-radius: 5px;
+  margin-left: 22px;
+}
+.companyDetails {
+  margin: 20px 0;
+  padding: 10px 16px;
+  background: rgba(39, 102, 120, 0.1);
+  border-radius: 4px;
+  font-size: 16px;
+  max-width: 72%;
+}
+
+/* //? Team management */
+
+.addRemove {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+.addUser {
+  font-size: 14px;
+  padding: 12px;
+  background-color: #46a997;
+  color: white;
+  border-radius: 5px;
+}
+.p-head {
+  font-weight: 600;
+  font-size: 14px;
+}
+.p-body {
+  font-size: 14px;
+}
+.modal-content {
+  width: 130% !important;
+}
+.fields {
+  margin: 24px 0 !important;
+}
+.inputFieldAddMember {
+  width: 360px;
+}
+.selectTeamMember {
+  width: 200px !important;
+}
+.addMore {
+  color: #46a997;
+}
+.memberCancelBtn {
+  font-size: 14px;
+  color: black;
+  background-color: #ededed;
+  padding: 10px 15px;
+}
+.memberSaveBtn {
+  font-size: 14px;
+  padding: 10px 15px;
+  color: white;
+  background-color: #46a997;
+}
+.modalBody {
+  padding: 0 16px;
+}
+
+/* //! Integration comp */
+.ats {
+  margin-bottom: 36px;
+  font-size: 14px;
+}
+.cardBody {
+  padding: 16px;
+  box-shadow: 0 4px 16px #0003;
+  width: fit-content;
+}
+.cardImg img {
+  width: 90px;
+  height: 56px;
+}
+.cardImg {
+  width: 256px;
+  padding: 20px;
+  background-color: #f6f6f6;
+  margin-bottom: 16px;
+}
+.premiumBtn {
+  font-weight: 600;
+}
+
+/* //* Plan and Billing */
+.freePlanBilling {
+  width: 46%;
+  box-shadow: 0 4px 16px #0003;
+  padding: 16px;
+  height: fit-content;
+}
+.changePlanBill {
+  font-size: 14px;
+  font-weight: 400;
+  width: fit-content;
+  margin-top: 0px;
+  padding: 8px 10px;
+  align-items: center;
+}
+.currentPlan {
+  align-items: center;
+}
+.emptyDiv {
+  margin-top: 32px;
+}
+.paymentMethod {
+  width: fit-content;
+  padding: 10px 15px;
+  color: #46a997;
+}
+.paymentMethod:hover {
+  border-radius: 5px;
+  background-color: #dff5f1;
+}
+
+/* paid plan */
+.paidPlan {
+  margin: 0 60px;
+  padding: 16px;
+}
+.yearSubscription {
+  margin-top: 0px;
+  font-size: 12px;
+}
+.upgradePlan {
+  width: fit-content;
+}
+.pPlan:hover {
+  text-decoration: underline;
 }

@@ -44,7 +44,7 @@ function Navbar() {
     <div className="navComp">
       <div className="navInner">
         <div className="logoNac">
-          <img className="navLogo" v src={Logo} alt="" />
+          <img className="navLogo" src={Logo} alt="" />
         </div>
         <div className="list d-flex">
           <ul className="ul">
@@ -119,11 +119,12 @@ function Navbar() {
                   {profileValue.map((e, index) => {
                     return (
                       <div
+                        key={index}
                         onClick={() => {
                           setComp(index + 4);
                         }}
                       >
-                        <MenuItem onClick={handleClose} key={index}>
+                        <MenuItem onClick={handleClose}>
                           <div className="d-flex iconSpan">
                             <div className=" me-3">{profileIcon[index]}</div>
                             {e}

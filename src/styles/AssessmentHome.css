@@ -79,6 +79,7 @@
 
 /* //! My candidate page  */
 .inputBx {
+  align-items: center;
   justify-content: space-between;
   margin-top: 20px;
 }
@@ -88,7 +89,7 @@
 .dropDownBx div {
   margin-right: 7px;
   background-color: white;
-  width: 191px;
+  width: 225px;
 }
 .nothingImg {
   margin: 48px 0 0;
@@ -166,4 +167,10 @@
 }
 .testDetails:hover {
   background-color: #ededed;
+}
+
+/* //? innerProfile */
+.innerProfile {
+  padding: 24px;
+  background-color: white;
 }

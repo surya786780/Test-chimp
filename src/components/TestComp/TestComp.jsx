@@ -1,11 +1,13 @@
 import React from "react";
+
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import FreeCard from "../FreeCard/FreeCard";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+
+import FreeCard from "../FreeCard/FreeCard";
 
 function TestComp() {
   const [details, setDetails] = React.useState({

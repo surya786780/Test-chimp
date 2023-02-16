@@ -4,7 +4,7 @@ function CreateNewAssessmentBtn() {
   return (
     <div className="createNew d-flex justify-content-between  assessment">
       <p className="">My assessment</p>
-      <div className="Plusicon">
+      <div className="Plusicon cursor-pointer">
         <span className="material-symbols-outlined">add_circle</span>
         Create new assessment
       </div>

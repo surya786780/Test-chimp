@@ -11,7 +11,7 @@ function FullProfile() {
   console.log(comp);
   return (
     <div className="splitComp">
-      <div className="topBar d-flex">
+      <div className="topBar d-flex cursor-pointer">
         {profileValue.map((e, index) => {
           if (index < 7) {
             return (

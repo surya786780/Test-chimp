@@ -13,10 +13,10 @@ import Notification from "../components/Notification/Notification";
 import PlanAndBilling from "../components/PlanAndBilling/PlanAndBilling";
 import TeamManagement from "../components/TeamManagement/TeamManagement";
 import SupportBtn from "../components/SupportBtn";
-
-import "../styles/AssessmentHome.css";
 import CreateNewAssessmentBtn from "../components/CreateNewAssessmentBtn/CreateNewAssessmentBtn";
 import FullProfile from "./FullProfile";
+
+import "../styles/AssessmentHome.css";
 
 export const ComponentSelection = createContext();
 
@@ -30,7 +30,7 @@ function AssessmentHome() {
       <div className="box">
         {comp <= 3 ? <CreateNewAssessmentBtn /> : <></>}
 
-        <div className="assessment">
+        <div className="assessment ">
           {/* {(() => {
             if (comp === 1) return <MyAssessment />;
             else if (comp === 2) return <MyCandidate />;
@@ -45,15 +45,17 @@ function AssessmentHome() {
               return (
                 <>
                   <FullProfile />
-                  {(() => {
-                    if (comp === 4) return <MyProfile />;
-                    else if (comp === 5) return <Notification />;
-                    else if (comp === 6) return <MyCompany />;
-                    else if (comp === 7) return <TeamManagement />;
-                    else if (comp === 8) return <PlanAndBilling />;
-                    else if (comp === 9) return <IntegrationComp />;
-                    else return <AssessmentSettings />;
-                  })()}
+                  <div className="innerProfile">
+                    {(() => {
+                      if (comp === 4) return <MyProfile />;
+                      else if (comp === 5) return <Notification />;
+                      else if (comp === 6) return <MyCompany />;
+                      else if (comp === 7) return <TeamManagement />;
+                      else if (comp === 8) return <PlanAndBilling />;
+                      else if (comp === 9) return <IntegrationComp />;
+                      else return <AssessmentSettings />;
+                    })()}
+                  </div>
                 </>
               );
             }

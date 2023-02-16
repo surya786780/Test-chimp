@@ -2,14 +2,26 @@ import React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
-const currencies = [
-  {
-    value: "No option selected",
-    label: "no",
-  },
-];
 function MyCandidate() {
+  const [details, setDetails] = React.useState({
+    assessment: "",
+    test: "",
+    jobRole: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDetails((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    console.log(details);
+  };
+
   return (
     <div>
       <div className="inputBx d-flex">
@@ -30,7 +42,7 @@ function MyCandidate() {
           </Box>
         </div>
         <div className="dropDownBx">
-          <TextField
+          {/* <TextField
             id="outlined-select-currency"
             select
             label="Assessment"
@@ -42,35 +54,62 @@ function MyCandidate() {
                 {option.label}
               </MenuItem>
             ))}
-          </TextField>
+          </TextField> */}
 
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Test"
-            defaultValue="Assessment"
-            // helperText="Please select your Assessment"
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+          <FormControl sx={{ m: 1, minWidth: 50 }}>
+            <InputLabel id="demo-select-small">Assessment</InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              value={details.assessment}
+              label="Language"
+              onChange={handleChange}
+              name="assessment"
+            >
+              <MenuItem value="">
+                <em>None</em>
               </MenuItem>
-            ))}
-          </TextField>
-
-          <TextField
-            id="outlined-select-currency"
-            select
-            label="Job role"
-            defaultValue="Assessment"
-            // helperText="Please select your Assessment"
-          >
-            {currencies.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
+              <MenuItem value={"Tamil"}>Tamil</MenuItem>
+              <MenuItem value={"English"}>English</MenuItem>
+              <MenuItem value={"Arabic"}>Arabic</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 50 }}>
+            <InputLabel id="demo-select-small">Test</InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              value={details.test}
+              label="Job role"
+              onChange={handleChange}
+              name="test"
+            >
+              <MenuItem value="">
+                <em>None</em>
               </MenuItem>
-            ))}
-          </TextField>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 50 }}>
+            <InputLabel id="demo-select-small">Job role</InputLabel>
+            <Select
+              labelId="demo-select-small"
+              id="demo-select-small"
+              value={details.jobRole}
+              label="Test type"
+              onChange={handleChange}
+              name="jobRole"
+            >
+              <MenuItem value="">
+                <em>None</em>
+              </MenuItem>
+              <MenuItem value={10}>Ten</MenuItem>
+              <MenuItem value={20}>Twenty</MenuItem>
+              <MenuItem value={30}>Thirty</MenuItem>
+            </Select>
+          </FormControl>
         </div>
       </div>
       <div className="nothingImg">
