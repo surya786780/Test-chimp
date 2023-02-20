@@ -36,7 +36,9 @@ function HiringPlan() {
     //   });
 
     try {
-      const url = `${import.meta.env.VITE_API_KEY_JAVA}/saveUserDetails`;
+      const url = `${
+        import.meta.env.VITE_API_KEY_JAVA
+      }/user-service/saveUserDetails`;
       const userData = await axios.post(url, data, {
         headers: {
           // 'Authorization': 'Bearer ' + (localStorage.getItem('token')) || ''

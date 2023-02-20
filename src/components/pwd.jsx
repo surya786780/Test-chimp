@@ -1,23 +1,10 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { Formik, Form, Field } from "formik";
 
-import IconButton from "@mui/material/IconButton";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
-import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
-import Checkbox from "@mui/material/Checkbox";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
 function PwdValidate() {
-  const [showPassword, setShowPassword] = useState(false);
   let [progressVal, setProgressval] = useState(0);
-  const [progress, setProgress] = useState(0);
-  console.log(progressVal);
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const [resetPwd, setResetPwd] = useState("");
+  console.log(resetPwd);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -151,11 +138,14 @@ function PwdValidate() {
           </Form>
         )}
       </Formik>
+      <div className="createAcc">Reset password</div>
     </>
   );
 }
 
 function validatePassword(value) {
+  console.log(value);
+
   let error = {};
   if (value.length <= 12) {
     error.characters = true;

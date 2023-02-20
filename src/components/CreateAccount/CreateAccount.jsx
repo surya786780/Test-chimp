@@ -64,7 +64,9 @@ function CreateAccount() {
                     console.log(values);
                     axios
                       .post(
-                        `${import.meta.env.VITE_API_KEY_JAVA}/register`,
+                        `${
+                          import.meta.env.VITE_API_KEY_JAVA
+                        }/user-service/register`,
                         values
                       )
                       .then((res) => {

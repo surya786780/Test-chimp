@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -17,23 +18,63 @@ import Logo from "../../assets/testgorilla.svg";
 
 import "../CreateAccount/CreateAccount.css";
 import "./Login.css";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Login() {
-  const [showPassword, setShowPassword] = React.useState(false);
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [req, setRequired] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [mail, setMail] = useState("");
+  const [pwd, setPwd] = useState("");
+  const [status, setStatus] = useState("");
+  const [mailData, setMailData] = useState({
+    email: "",
+    password: "",
+  });
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
-  const setMail = (e) => {
-    console.log(e);
+  const handleClose = () => {
+    setOpen(false);
   };
+  const handleToggle = () => {
+    if (req == 0) {
+    }
+    setOpen(!open);
+  };
+
+  function sendData() {
+    setMailData({
+      email: mail,
+      password: pwd,
+    });
+    console.log(mailData);
+    axios
+      .post(`${import.meta.env.VITE_API_KEY_JAVA}/user-service/login`, mailData)
+      .then((res) => {
+        if (res.data.status === "SUCCESS") {
+          console.log(res.headers.authorization);
+          localStorage.setItem("token-login", res.headers.authorization);
+          setOpen(false);
+          values["userId"] = res.data.data.id;
+          navigate("/assessment", { replace: true });
+        }
+      })
+      .catch((err) => {
+        setOpen(false);
+        setStatus(err.response.data.error.message);
+      });
+  }
 
   return (
     <div>
       <div className="login">
+        {status}
+
         <div className="innerLogin">
           <div className="center-container">
             <img className="logo" src={Logo} alt="" />
@@ -57,6 +98,7 @@ function Login() {
                   required
                   fullWidth
                   label="Email "
+                  name="email"
                   id="outlined-error-helper-text fullWidth"
                   onChange={(e) => {
                     setMail(e.target.value);
@@ -86,7 +128,11 @@ function Login() {
                         </IconButton>
                       </InputAdornment>
                     }
+                    name="password"
                     label="Password"
+                    onChange={(e) => {
+                      setPwd(e.target.value);
+                    }}
                   />
                 </FormControl>
               </div>
@@ -105,15 +151,11 @@ function Login() {
                 </div>
               </div>
 
-              <div className="link-setting">
-                <Link to="/assessment">
-                  <div className="createAcc">
-                    <div className="">Log in</div>
-                  </div>
-                </Link>
+              <div className="link-setting" onClick={sendData}>
+                <div className="createAcc" onClick={handleToggle}>
+                  Log in
+                </div>
               </div>
-
-              {/* <button type="submit"></button> */}
 
               <div className="createAccLink d-flex">
                 Don't have an account?
@@ -130,6 +172,17 @@ function Login() {
                   </a>
                 </span>
               </div>
+
+              <Backdrop
+                sx={{
+                  color: "#fff",
+                  zIndex: (theme) => theme.zIndex.drawer + 1,
+                }}
+                open={open}
+                // onClick={handleClose}
+              >
+                <CircularProgress color="inherit" />
+              </Backdrop>
             </div>
           </div>
         </div>
