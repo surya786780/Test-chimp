@@ -31,12 +31,6 @@ function AssessmentHome() {
         {comp <= 3 ? <CreateNewAssessmentBtn /> : <></>}
 
         <div className="assessment ">
-          {/* {(() => {
-            if (comp === 1) return <MyAssessment />;
-            else if (comp === 2) return <MyCandidate />;
-            else return <TestComp />;
-          })()} */}
-
           {(() => {
             if (comp === 1) return <MyAssessment />;
             else if (comp === 2) return <MyCandidate />;

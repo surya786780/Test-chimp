@@ -6,40 +6,14 @@ import "../CreateAccount/CreateAccount.css";
 import "./InviteTeam.css";
 import TextField from "@mui/material/TextField";
 
-import axios from "axios";
 import { UserContext } from "../../pages/Router";
-
 function InviteTeam() {
   const [data, setData] = useContext(UserContext);
   console.log(data);
   const navigate = useNavigate();
 
-  async function sendData() {
-    console.log("hitt");
-    // axios
-    //   .post(`${import.meta.env.VITE_APP_KEY}/authenticate/signup`, data)
-    //   .then((res) => {
-    //     if (res.data.status === "SUCCESS") {
-    //       console.log(res);
-    //       navigate("/assessment", { replace: true });
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-
-    try {
-      const url = `${import.meta.env.VITE_APP_KEY}/authenticate/signup`;
-      const userData = await axios.post(url, data);
-      const { status } = userData.data || {};
-
-      if (status === "SUCCESS") {
-        console.log(userData);
-        navigate("/assessment", { replace: true });
-      }
-    } catch (e) {
-      console.error(e);
-    }
+  function sendData() {
+    navigate("/assessment", { replace: true });
   }
 
   return (

@@ -38,3 +38,7 @@
 .supportSpan :hover {
   text-decoration: underline;
 }
+
+.link-setting a {
+  text-decoration: none;
+}

@@ -1,6 +1,6 @@
 import React from "react";
-import "./Login.css";
-import Logo from "../../assets/testgorilla.svg";
+import { Link } from "react-router-dom";
+
 import IconButton from "@mui/material/IconButton";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
@@ -12,8 +12,12 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { Link } from "react-router-dom";
+
+import Logo from "../../assets/testgorilla.svg";
+
 import "../CreateAccount/CreateAccount.css";
+import "./Login.css";
+
 function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -22,6 +26,11 @@ function Login() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const setMail = (e) => {
+    console.log(e);
+  };
+
   return (
     <div>
       <div className="login">
@@ -45,11 +54,10 @@ function Login() {
               </div>
               <div className="outlinedBox d-flex mt-4">
                 <TextField
+                  required
                   fullWidth
-                  // error
-                  label="Email *"
+                  label="Email "
                   id="outlined-error-helper-text fullWidth"
-                  // helperText="! This field is Required."
                   onChange={(e) => {
                     setMail(e.target.value);
                   }}
@@ -96,11 +104,16 @@ function Login() {
                   <Link to="/forgot-password">set or reset password</Link>
                 </div>
               </div>
-              <div className="createAcc">
-                <Link to="/login">
-                  <div className="">Log in</div>
+
+              <div className="link-setting">
+                <Link to="/assessment">
+                  <div className="createAcc">
+                    <div className="">Log in</div>
+                  </div>
                 </Link>
               </div>
+
+              {/* <button type="submit"></button> */}
 
               <div className="createAccLink d-flex">
                 Don't have an account?

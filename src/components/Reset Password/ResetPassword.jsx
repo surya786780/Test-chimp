@@ -1,8 +1,11 @@
 import React from "react";
-import "./ResetPassword.css";
+import { Link } from "react-router-dom";
+
 import Logo from "../../assets/testgorilla.svg";
 import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
+
+import "./ResetPassword.css";
+
 function ResetPassword() {
   return (
     <div>
@@ -15,11 +18,12 @@ function ResetPassword() {
             <div className="mailAuths">
               <div className="outlinedBox d-flex mt-4">
                 <TextField
+                  required
                   fullWidth
-                  error
+                  // error
                   label="Work Email"
                   id="outlined-error-helper-text fullWidth"
-                  helperText="! this field is required"
+                  // helperText="! this field is required"
                   //   onChange={(e) => {
                   //     setMail(e.target.value);
                   //   }}

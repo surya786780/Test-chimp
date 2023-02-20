@@ -64,11 +64,16 @@ function CreateAccount() {
                     console.log(values);
                     axios
                       .post(
-                        `${import.meta.env.VITE_APP_KEY}/authenticate/register`,
+                        `${import.meta.env.VITE_API_KEY_JAVA}/register`,
                         values
                       )
                       .then((res) => {
                         if (res.data.status === "SUCCESS") {
+                          console.log(res.headers.authorization);
+                          localStorage.setItem(
+                            "token",
+                            res.headers.authorization
+                          );
                           setOpen(false);
                           values["userId"] = res.data.data.id;
                           setData({ ...values, ...data });
@@ -77,7 +82,6 @@ function CreateAccount() {
                       })
                       .catch((err) => {
                         setOpen(false);
-
                         setStatus(err.response.data.error.message);
                       });
                   }}
