@@ -1,16 +1,55 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
+import axios from "axios";
 
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import "../CreateAccount/CreateAccount.css";
 import "./SetPassword.css";
 import Logo from "../../assets/testgorilla.svg";
 
-import { Link } from "react-router-dom";
-import { TextField } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 
 function SetPassword() {
+  const navigate = useNavigate();
   let [progressVal, setProgressval] = useState(0);
 
+  const [req, setRequired] = useState(0);
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleToggle = () => {
+    if (req == 0) {
+    }
+    setOpen(!open);
+  };
+
+  async function sendData(data) {
+    console.log(data);
+    try {
+      const url = `${
+        import.meta.env.VITE_API_KEY_JAVA
+      }/user-service/setPassword`;
+      const userData = await axios.post(url, data, {
+        headers: {
+          // 'Authorization': 'Bearer ' + (localStorage.getItem('token')) || ''
+          Authorization: localStorage.getItem("token") || "",
+        },
+      });
+      const { status } = userData.data || {};
+
+      if (status === "SUCCESS") {
+        handleToggle;
+        setOpen(false);
+        console.log(userData);
+        navigate("/assessment", { replace: true });
+      }
+    } catch (e) {
+      setOpen(false);
+      console.error(e);
+    }
+  }
   function validatePassword(value) {
     let error = {};
     if (value.length <= 12) {
@@ -48,7 +87,7 @@ function SetPassword() {
                   password: "",
                 }}
                 onSubmit={(values) => {
-                  console.log(values);
+                  sendData(values);
                 }}
               >
                 {({ errors, touched }) => (
@@ -170,9 +209,11 @@ function SetPassword() {
                         }
                       </div>
                     </div>
-                    <div className="createAcc reset-btn">
-                      <button type="submit">Reset password</button>
-                    </div>
+                    <button type="submit" className="reset-btn createAcc">
+                      <div className=" ">
+                        <div className="">Reset password</div>
+                      </div>
+                    </button>
                   </Form>
                 )}
               </Formik>
@@ -182,6 +223,16 @@ function SetPassword() {
           <div className="setLog mt-3">
             <Link to="/">Go back to login.</Link>
           </div>
+          <Backdrop
+            sx={{
+              color: "#fff",
+              zIndex: (theme) => theme.zIndex.drawer + 1,
+            }}
+            open={open}
+            // onClick={handleClose}
+          >
+            <CircularProgress color="inherit" />
+          </Backdrop>
         </div>
       </div>
     </div>
