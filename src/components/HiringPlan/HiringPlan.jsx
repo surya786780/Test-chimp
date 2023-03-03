@@ -22,7 +22,7 @@ function HiringPlan() {
   }
 
   async function sendData() {
-    console.log("hitt");
+    console.log("hitt", data);
     // axios
     //   .post(`${import.meta.env.VITE_APP_KEY}/authenticate/signup`, data)
     //   .then((res) => {
@@ -34,21 +34,21 @@ function HiringPlan() {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-
+    console.log(localStorage.getItem("token"));
     try {
       const url = `${
-        import.meta.env.VITE_API_KEY_JAVA
-      }/user-service/saveUserDetails`;
+        import.meta.env.VITE_API_KEY_NODE
+      }/user-service/users/save-user-details`;
       const userData = await axios.post(url, data, {
         headers: {
-          // 'Authorization': 'Bearer ' + (localStorage.getItem('token')) || ''
-          Authorization: localStorage.getItem("token") || "",
+          Authorization: "Bearer " + localStorage.getItem("token") || "",
+          // Authorization: localStorage.getItem("token") || "",
         },
       });
       const { status } = userData.data || {};
 
       if (status === "SUCCESS") {
-        console.log(userData);
+        console.log(status);
         navigate("/invite-team-members", { replace: true });
       }
     } catch (e) {

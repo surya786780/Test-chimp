@@ -1,0 +1,313 @@
+.bold-text {
+  font-size: 40px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+.sub-text {
+  font-size: 19px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.login-btn a {
+  text-decoration: none;
+  color: black;
+}
+.login-btn a:hover {
+  color: gray;
+}
+/* //! Login Nav */
+.loginNav {
+  background-color: #f6f6f6;
+  position: fixed;
+  padding: 0 55px;
+  width: 100%;
+}
+
+.center-comp {
+  padding: 0 45px;
+}
+.landingNav {
+  position: fixed;
+  margin: 20px 0;
+  top: 16px;
+  background: white;
+  width: 100%;
+}
+.navLogo img {
+  width: 200px;
+  height: 65px;
+}
+.navContent {
+  width: 100%;
+  margin-left: 115px;
+  padding: 20px 0;
+}
+.navContent li {
+  list-style: none;
+  padding: 0 31px;
+  font-size: 18px;
+  padding: 20px;
+}
+.tryFreeBtn {
+  margin-left: 10px;
+  color: white;
+  padding: 20px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* //? Landingpage content */
+.LandingPageBody {
+  width: 100%;
+  padding-top: 156px !important;
+}
+.landPageContent1 {
+  color: white;
+  background-color: #226679;
+  height: auto;
+  width: 50%;
+  padding-top: 70px;
+}
+.landPageContent1 h1 {
+  font-size: 40px;
+}
+.landPageContent1 p {
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 28px;
+}
+.tryFreeVdo {
+  margin-top: 35px;
+  font-size: 14px;
+  display: inline-block;
+}
+.try-free {
+  padding: 15px 40px;
+  background-color: #ededed;
+  border-color: #ededed;
+  color: #000;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+.watch-video {
+  border: 2px solid;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  padding: 13px 46px;
+}
+.rate {
+  font-size: 16px;
+}
+.rate img {
+  width: 182px;
+  height: 100px;
+}
+.rate p {
+  font-size: 16px;
+}
+
+.landPageContent2 {
+  color: white;
+  background-color: #e3c3c6;
+  width: 50%;
+  padding-top: 70px;
+}
+.landPageContent2 img {
+  width: 621px;
+  height: 600px;
+  margin-left: 112px;
+}
+
+/* //? Join Company */
+.join-companies h1 {
+  font-size: 40px;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: 35px;
+}
+.company-logo li {
+  list-style: none;
+  width: 304px;
+  height: 110px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.company-logo li img {
+  width: 130px;
+}
+
+/* //! job-success */
+.job-success {
+  padding: 120px 15px;
+  background-color: #ededed;
+}
+.job-success-content h1 {
+  font-weight: bolder;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.job-success-content p {
+  font-size: 19px;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+.see-tests {
+  border: 2px solid;
+  border-radius: 6px;
+  color: #44aa97;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 35px;
+  padding: 13px 46px;
+}
+
+/* //? qualityCandidates */
+
+.qualityCandidates {
+  padding: 150px 50px;
+  background-color: #cbd7cb;
+}
+.qualityCandidates-content {
+  width: 50%;
+  padding-right: 50px;
+}
+.qualityCandidates-content h1 {
+  font-size: 40px;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+.qualityCandidates-content p {
+  font-size: 19px;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.qualityCandidates-img {
+  width: 50%;
+}
+.qualityCandidates-img img {
+  width: 480px;
+  height: 394px;
+  overflow: hidden;
+}
+
+/* .qualityCandidates-img:first-child {
+  transform: matrix(1, 0, 0, 1, 304.496, 228.091);
+  opacity: 1;
+  overflow: hidden;
+} */
+
+/* //! team-perform-better */
+
+.team-perform-better {
+  padding: 15px;
+}
+.team-perform-better-img {
+  width: 50%;
+}
+.team-perform-better-img img {
+  width: 700px;
+  height: 510px;
+}
+.team-perform-better-content {
+  width: 50%;
+  height: 100%;
+  margin: auto;
+}
+
+/* //? candidate-experience */
+.candidate-experience {
+  width: 100%;
+  padding-top: 50px;
+}
+.candidate-experience-content {
+  background-color: #cca45f;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: auto;
+  width: 50%;
+  padding: 70px;
+  /* margin: auto; */
+}
+.cont {
+  padding-top: 155px;
+}
+.candidate-experience-img {
+  width: 50%;
+  margin: 0 auto;
+  background-color: #f0d6bb;
+}
+.candidate-experience-img:first-child {
+  margin-bottom: -4rem;
+}
+
+/* //* hr-culture */
+.hr-culture {
+  background-color: #c8d7de;
+  padding-left: 50px;
+}
+.hr-culture-img {
+  width: 50%;
+  margin: auto;
+}
+.hr-culture-img img {
+  width: 700px;
+  height: 390px;
+  padding-right: 20px;
+}
+.hr-culture-content {
+  padding: 25px;
+}
+.learn-more-btn {
+  border: 2px solid;
+  border-radius: 6px;
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 35px;
+  padding: 13px 46px;
+  padding: 16px 39px;
+}
+
+/* //? talent-hire-content */
+.talent-hire-content {
+  padding-left: 55px;
+}
+.talk-to-us {
+  border: 2px solid;
+  /* border-radius: 6px; */
+  box-sizing: border-box;
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 15px;
+  margin-top: 35px;
+  padding: 15px 40px;
+}
+.sign-up-here {
+  background-color: #44aa97;
+  border: 2px solid;
+  border-color: #44aa97;
+  border-radius: 6px;
+  box-sizing: content-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 35px;
+  min-width: 120px;
+  padding: 15px 20px;
+}
+
+/* //! LandingFooter */
+.LandingFooter {
+  padding: 130px 30px 120px;
+}

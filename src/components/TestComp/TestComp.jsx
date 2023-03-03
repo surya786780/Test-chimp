@@ -8,6 +8,8 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 import FreeCard from "../FreeCard/FreeCard";
+import Navbar from "../Navbar/Navbar";
+import CreateNewAssessmentBtn from "../CreateNewAssessmentBtn/CreateNewAssessmentBtn";
 
 function TestComp() {
   const [details, setDetails] = React.useState({
@@ -26,17 +28,21 @@ function TestComp() {
   };
 
   return (
-    <div className="test">
-      <div className="testComp d-flex">
-        <Box component="form" noValidate autoComplete="off">
-          <TextField
-            id="outlined-basic"
-            label="Search anything here"
-            variant="outlined"
-          />
-        </Box>
+    <>
+      <Navbar />
+      <div className="bg-gray sub-comps">
+        <CreateNewAssessmentBtn />
+        <div className="test assessment">
+          <div className="testComp d-flex">
+            <Box component="form" noValidate autoComplete="off">
+              <TextField
+                id="outlined-basic"
+                label="Search anything here"
+                variant="outlined"
+              />
+            </Box>
 
-        {/* <TextField
+            {/* <TextField
           id="outlined-select-currency"
           select
           label="Job role"
@@ -50,69 +56,71 @@ function TestComp() {
           ))}
         </TextField> */}
 
-        <FormControl sx={{ m: 1, minWidth: 80 }}>
-          <InputLabel id="demo-select-small">Language</InputLabel>
-          <Select
-            labelId="demo-select-small"
-            id="demo-select-small"
-            value={details.language}
-            label="Language"
-            onChange={handleChange}
-            name="language"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={"Tamil"}>Tamil</MenuItem>
-            <MenuItem value={"English"}>English</MenuItem>
-            <MenuItem value={"Arabic"}>Arabic</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 80 }}>
-          <InputLabel id="demo-select-small">Job role</InputLabel>
-          <Select
-            labelId="demo-select-small"
-            id="demo-select-small"
-            value={details.jobRole}
-            label="Job role"
-            onChange={handleChange}
-            name="jobRole"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 80 }}>
-          <InputLabel id="demo-select-small">Test type</InputLabel>
-          <Select
-            labelId="demo-select-small"
-            id="demo-select-small"
-            value={details.testType}
-            label="Test type"
-            onChange={handleChange}
-            name="testType"
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel id="demo-select-small">Language</InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={details.language}
+                label="Language"
+                onChange={handleChange}
+                name="language"
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={"Tamil"}>Tamil</MenuItem>
+                <MenuItem value={"English"}>English</MenuItem>
+                <MenuItem value={"Arabic"}>Arabic</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel id="demo-select-small">Job role</InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={details.jobRole}
+                label="Job role"
+                onChange={handleChange}
+                name="jobRole"
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl sx={{ m: 1, minWidth: 80 }}>
+              <InputLabel id="demo-select-small">Test type</InputLabel>
+              <Select
+                labelId="demo-select-small"
+                id="demo-select-small"
+                value={details.testType}
+                label="Test type"
+                onChange={handleChange}
+                name="testType"
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
 
-      <div className="cardsDiv d-flex">
-        <FreeCard />
-        <FreeCard />
-        <FreeCard />
-        <FreeCard />
+          <div className="cardsDiv d-flex">
+            <FreeCard />
+            <FreeCard />
+            <FreeCard />
+            <FreeCard />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

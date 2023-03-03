@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
 }
+p {
+  margin: 0;
+}
 .premiumIcon {
   height: 24px;
   width: 24px;
@@ -36,9 +39,70 @@ body {
 .font-small {
   font-size: 14px;
 }
+.font-big {
+  font-size: 20px;
+}
 .pri-color {
   color: #46a997;
 }
+.pri-bgcolor {
+  background-color: #46a997;
+}
 .border-top {
   border-top: 1px solid #dff5f1;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-gray {
+  background-color: #f6f6f6;
+}
+.sec-color {
+  color: #276678;
+}
+.color-gray {
+  color: gray;
+}
+.danger {
+  color: red;
+  font-size: 14px;
+}
+.sec-bgcolor {
+  background-color: #276678;
+}
+.back-arrow {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  color: black;
+}
+.w-fitContent {
+  width: fit-content;
+}
+.b-radius-6 {
+  border-radius: 6px;
+}
+.table-row tr:hover {
+  background-color: #f0d6bb;
+}
+.sub-comps {
+  position: relative;
+  top: 84px;
+  width: 100%;
+}
+.material-symbols-outlined {
+  z-index: 0 !important;
+}
+.border-bottem {
+  border-bottom: 1px solid gray;
+  box-shadow: 0 4px 16px rgba(171, 171, 171, 0.2);
+}
+.h-fit {
+  height: fit-content;
 }

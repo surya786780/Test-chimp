@@ -1,0 +1,41 @@
+/* //? Assessment name */
+
+/* .new-assessment {
+} */
+.create-new-assessment {
+  width: 100%;
+}
+
+/* //! Name Assessment */
+
+.testComponents {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+.testComponents a {
+  color: white;
+}
+.round-comps {
+  padding: 6px 12px;
+  border: 1px solid;
+  width: auto;
+  border-radius: 50%;
+}
+.border-Div {
+  top: -41px;
+  position: relative;
+  width: 75%;
+  margin: 56px 0;
+  padding: 1px;
+}
+.not-active-test {
+  background-color: #c8d6d9;
+}
+.active-test {
+  background-color: #276678;
+}
+.test-comp-name {
+  font-size: 16px;
+  font-weight: normal;
+}

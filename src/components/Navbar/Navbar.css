@@ -1,5 +1,10 @@
 .navComp {
   border-bottom: 1px solid #d5d3d3;
+  position: fixed;
+  top: 0;
+  z-index: 6;
+  background: white;
+  width: 100%;
 }
 .navInner {
   display: flex;

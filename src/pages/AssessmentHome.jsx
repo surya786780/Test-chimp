@@ -15,6 +15,7 @@ import TeamManagement from "../components/TeamManagement/TeamManagement";
 import SupportBtn from "../components/SupportBtn";
 import CreateNewAssessmentBtn from "../components/CreateNewAssessmentBtn/CreateNewAssessmentBtn";
 import FullProfile from "./FullProfile";
+import NewAssessment from "./NewAssessment";
 
 import "../styles/AssessmentHome.css";
 
@@ -22,7 +23,6 @@ export const ComponentSelection = createContext();
 
 function AssessmentHome() {
   const [comp, setComp] = useState(1);
-  // console.log(comp);
 
   return (
     <ComponentSelection.Provider value={[comp, setComp]}>
@@ -35,7 +35,7 @@ function AssessmentHome() {
             if (comp === 1) return <MyAssessment />;
             else if (comp === 2) return <MyCandidate />;
             else if (comp === 3) return <TestComp />;
-            else if (comp > 3) {
+            else if (comp > 3 && comp < 11) {
               return (
                 <>
                   <FullProfile />
@@ -47,11 +47,13 @@ function AssessmentHome() {
                       else if (comp === 7) return <TeamManagement />;
                       else if (comp === 8) return <PlanAndBilling />;
                       else if (comp === 9) return <IntegrationComp />;
-                      else return <AssessmentSettings />;
+                      else if (comp === 10) return <AssessmentSettings />;
                     })()}
                   </div>
                 </>
               );
+            } else {
+              return <NewAssessment />;
             }
           })()}
         </div>

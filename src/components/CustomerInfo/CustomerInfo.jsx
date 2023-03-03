@@ -1,16 +1,61 @@
 import React, { useState, useRef, useContext } from "react";
+import axios from "axios";
 import "../CreateAccount/CreateAccount.css";
 import "./CustomerInfo.css";
 import Logo from "../../assets/testgorilla.svg";
 import TextField from "@mui/material/TextField";
+
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+
 import { Formik } from "formik";
 import { Typography } from "@mui/material";
 import { UserContext } from "../../pages/Router";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function Signup_Details() {
   const [data, setData] = useContext(UserContext);
+  const [track, setTrack] = useState([]);
   const navigate = useNavigate();
+
+  const getData = async () => {
+    const values = await axios.get(
+      `${import.meta.env.VITE_API_KEY_NODE}/user-service/users/ats`
+    );
+    setTrack(values.data.data);
+    setAts();
+  };
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const [details, setDetails] = React.useState({
+    applicantTrackingSystemId: "",
+  });
+
+  const handleChange = (e) => {
+    console.log(e);
+
+    const { name, value } = e.target;
+    setDetails((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    console.log(details);
+  };
+
+  function setAts() {
+    console.log("hello", track);
+    track.map((value) => {
+      for (let property in value) {
+        console.log(`${property}: ${value[property]}`);
+      }
+    });
+  }
+
   return (
     <div className="login">
       <div className="innerLogin">
@@ -31,10 +76,11 @@ function Signup_Details() {
                   phoneNumber: "",
                   companyName: "",
                   jobTitle: "",
-                  appTrackSystemId: "",
+                  applicantTrackingSystemId: "",
                 }}
                 onSubmit={(values, actions) => {
                   setData({ ...values, ...data });
+                  console.log(data);
                   navigate("/company-size", { replace: true });
                 }}
               >
@@ -124,21 +170,48 @@ function Signup_Details() {
                       onChange={props.handleChange("jobTitle")}
                       onBlur={props.handleBlur("jobTitle")}
                     />
-                    <TextField
+                    {/* <TextField
                       className="field"
                       fullWidth
                       label="What Applicant Tracking System are you using?"
-                      name="appTrackSystemId"
-                      value={props.values.appTrackSystemId}
-                      onChange={props.handleChange("appTrackSystemId")}
-                      onBlur={props.handleBlur("appTrackSystemId")}
-                    />
+                      name="applicantTrackingSystemId"
+                      value={props.values.applicantTrackingSystemId}
+                      onChange={props.handleChange("applicantTrackingSystemId")}
+                      onBlur={props.handleBlur("applicantTrackingSystemId")}
+                    /> */}
 
-                    <div className="redirectLink  createAcc mt-4">
-                      <button type="submit" className="butn">
-                        Next
-                      </button>
-                    </div>
+                    <FormControl sx={{ mt: 3, minWidth: 510 }}>
+                      <InputLabel id="demo-select-small">
+                        "What Applicant Tracking System are you using?
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small"
+                        id="demo-select-small"
+                        value={props.values.applicantTrackingSystemId}
+                        label="Applicant Tracking System"
+                        onBlur={props.handleBlur("applicantTrackingSystemId")}
+                        onChange={props.handleChange(
+                          "applicantTrackingSystemId"
+                        )}
+                        name="applicantTrackingSystemId"
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        <MenuItem
+                          value={`${track[0]?.id}`}
+                        >{`${track[0]?.name}`}</MenuItem>
+                        <MenuItem
+                          value={`${track[1]?.id}`}
+                        >{`${track[1]?.name}`}</MenuItem>
+                        <MenuItem
+                          value={`${track[2]?.id}`}
+                        >{`${track[2]?.name}`}</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <button type="submit" className="butn redirectLink">
+                      <div className="createAcc mt-4 ">Next</div>
+                    </button>
                   </form>
                 )}
               </Formik>

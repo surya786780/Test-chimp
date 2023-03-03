@@ -4,7 +4,7 @@ import PremiumIcon from "../PremiumIcon/PremiumIcon";
 function IntegrationCards({ imgSrc }) {
   return (
     <div className="companyCards">
-      <div className="cardBody">
+      <div className="cardBodyShadow">
         <div className="cardImg d-flex justify-content-center">
           <img src={imgSrc} alt="cards" />
         </div>

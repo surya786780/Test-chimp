@@ -1,5 +1,5 @@
 .splitComp {
-  padding-top: 40px;
+  margin-top: 40px;
   background-color: #f5f6f6;
 }
 .topBar {
@@ -179,7 +179,7 @@
   margin-bottom: 36px;
   font-size: 14px;
 }
-.cardBody {
+.cardBodyShadow {
   padding: 16px;
   box-shadow: 0 4px 16px #0003;
   width: fit-content;

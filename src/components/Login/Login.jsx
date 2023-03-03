@@ -13,6 +13,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Checkbox from "@mui/material/Checkbox";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { toast } from "react-toastify";
 
 import Logo from "../../assets/testgorilla.svg";
 
@@ -28,10 +29,7 @@ function Login() {
   const [mail, setMail] = useState("");
   const [pwd, setPwd] = useState("");
   const [status, setStatus] = useState("");
-  const [mailData, setMailData] = useState({
-    email: "",
-    password: "",
-  });
+  const [err, setErr] = useState("");
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -41,33 +39,48 @@ function Login() {
   const handleClose = () => {
     setOpen(false);
   };
+  console.log(mail, pwd);
   const handleToggle = () => {
     if (req == 0) {
     }
     setOpen(!open);
   };
 
-  function sendData() {
-    setMailData({
-      email: mail,
-      password: pwd,
-    });
-    console.log(mailData);
-    axios
-      .post(`${import.meta.env.VITE_API_KEY_JAVA}/user-service/login`, mailData)
-      .then((res) => {
-        if (res.data.status === "SUCCESS") {
-          console.log(res.headers.authorization);
-          localStorage.setItem("token-login", res.headers.authorization);
-          setOpen(false);
-          values["userId"] = res.data.data.id;
-          navigate("/assessment", { replace: true });
+  async function sendData() {
+    try {
+      const url = `${
+        import.meta.env.VITE_API_KEY_NODE
+      }/user-service/users/login`;
+      const userData = await axios.post(
+        url,
+        { email: mail, password: pwd },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token") || "",
+            // Authorization: localStorage.getItem("token") || "",
+          },
         }
-      })
-      .catch((err) => {
-        setOpen(false);
-        setStatus(err.response.data.error.message);
-      });
+      );
+      const { status } = userData.data || {};
+
+      if (status === "SUCCESS") {
+        console.log(status);
+        toast.success("Link sent successfully", {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        navigate("/customer/assessment", { replace: true });
+      }
+    } catch (e) {
+      setOpen(false);
+      setErr(e.response.data.message);
+    }
   }
 
   return (
@@ -95,7 +108,6 @@ function Login() {
               </div>
               <div className="outlinedBox d-flex mt-4">
                 <TextField
-                  required
                   fullWidth
                   label="Email "
                   name="email"
@@ -103,6 +115,7 @@ function Login() {
                   onChange={(e) => {
                     setMail(e.target.value);
                   }}
+                  required
                 />
                 {/* <span className="material-symbols-outlined mailIcon">mail</span> */}
               </div>
@@ -136,6 +149,8 @@ function Login() {
                   />
                 </FormControl>
               </div>
+              <div className="danger mb-2 mt-1">{err}</div>
+
               <div className="resetPwd mt-4 d-flex justify-between">
                 <div className="checkBx">
                   <FormGroup>
@@ -160,7 +175,7 @@ function Login() {
               <div className="createAccLink d-flex">
                 Don't have an account?
                 <div className="redirectLog">
-                  <Link to="/">Create one here.</Link>
+                  <Link to="/create-account">Create one here.</Link>
                 </div>
               </div>
 

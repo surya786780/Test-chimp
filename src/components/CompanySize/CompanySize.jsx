@@ -27,7 +27,7 @@ function CompanySize() {
         <div className="center-container">
           <img className="logo" src={Logo} alt="" />
           <p className="freePlan">How many people work in your company?</p>
-          <div className="count1 d-flex">
+          <div className="count1 d-flex cursor-pointer">
             <Count
               size={"1-50"}
               onClick={() => {
@@ -41,7 +41,7 @@ function CompanySize() {
               }}
             />
           </div>
-          <div className="count1 d-flex">
+          <div className="count1 d-flex cursor-pointer">
             <Count
               size={"201-1000"}
               onClick={() => {

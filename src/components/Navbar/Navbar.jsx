@@ -1,27 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import axios from "axios";
 
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { ComponentSelection } from "../../pages/AssessmentHome";
+
 import {
   profileValue,
   profileIcon,
   profileRoutes,
 } from "../Contents/NavContents";
+
 import "./Navbar.css";
 import Logo from "../../assets/testgorilla.svg";
+import FullProfile from "../../pages/FullProfile";
 
 function Navbar() {
-  const [comp, setComp] = useContext(ComponentSelection);
+  const d = localStorage.getItem("userDetails");
+  const name = JSON.parse(d);
+  // get data
+  async function getData() {
+    console.log("hitt");
+    console.log(localStorage.getItem("token"));
+    try {
+      const url = `${
+        import.meta.env.VITE_API_KEY_NODE
+      }/user-service/users/user-info`;
+      const userData = await axios.get(url, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token") || "",
+          // Authorization: localStorage.getItem("token") || "",
+        },
+      });
+
+      const { status } = userData.data || {};
+
+      if (status === "SUCCESS") {
+        localStorage.setItem("userDetails", JSON.stringify(userData.data.data));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
+  useEffect(() => {
+    getData();
+  }, []);
+  // get data
+
   const [details, setDetails] = React.useState({
     language: "",
     jobRole: "",
     testType: "",
   });
-  console.log(comp);
+  // console.log(comp);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -48,21 +80,15 @@ function Navbar() {
         </div>
         <div className="list d-flex">
           <ul className="ul">
-            <li
-              onClick={() => {
-                setComp(1);
-              }}
-            >
-              My assessments
-            </li>
-            <li
-              onClick={() => {
-                setComp(2);
-              }}
-            >
-              My candidates
-            </li>
-            <li onClick={() => setComp(3)}>Tests</li>
+            <Link to={"/customer/assessment"} className="link">
+              <li>My assessments</li>
+            </Link>
+            <Link to={"/customer/candidate"} className="link">
+              <li>My candidates</li>
+            </Link>
+            <Link to={"/customer/tests"} className="link">
+              <li>Tests</li>
+            </Link>
           </ul>
           <ul className="endList d-flex ">
             <li className="border cursor-pointer">Talk to us</li>
@@ -102,7 +128,7 @@ function Navbar() {
                   aria-expanded={open ? "true" : undefined}
                   onClick={handleClick}
                 >
-                  Suryakumar a
+                  {name.firstName + name.lastName}
                   <span className="material-symbols-outlined">
                     keyboard_arrow_down
                   </span>
@@ -116,19 +142,17 @@ function Navbar() {
                     "aria-labelledby": "basic-button",
                   }}
                 >
+                  {/* <FullProfile /> */}
                   {profileValue.map((e, index) => {
                     return (
-                      <div
-                        key={index}
-                        onClick={() => {
-                          setComp(index + 4);
-                        }}
-                      >
+                      <div key={index} className="">
                         <MenuItem onClick={handleClose}>
-                          <div className="d-flex iconSpan">
-                            <div className=" me-3">{profileIcon[index]}</div>
-                            {e}
-                          </div>
+                          <Link to={profileRoutes[index]} className="link">
+                            <div className="d-flex iconSpan">
+                              <div className=" me-3">{profileIcon[index]}</div>
+                              {e}
+                            </div>
+                          </Link>
                         </MenuItem>
                       </div>
                     );

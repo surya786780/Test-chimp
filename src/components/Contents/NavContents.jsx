@@ -21,4 +21,12 @@ export const profileIcon = [
   <span className="material-symbols-outlined">power_settings_new</span>,
 ];
 
-export const profileRoutes = [];
+export const profileRoutes = [
+  "/profile/profile",
+  "/profile/notification",
+  "/profile/mycompany",
+  "/profile/team-management",
+  "/profile/plan-and-billing",
+  "/profile/integration",
+  "/profile/assessment-settings",
+];

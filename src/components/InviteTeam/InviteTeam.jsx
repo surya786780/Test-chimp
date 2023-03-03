@@ -13,7 +13,7 @@ function InviteTeam() {
   const navigate = useNavigate();
 
   function sendData() {
-    navigate("/assessment", { replace: true });
+    navigate("/customer/assessment", { replace: true });
   }
 
   return (

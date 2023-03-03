@@ -65,26 +65,23 @@ function CreateAccount() {
                     axios
                       .post(
                         `${
-                          import.meta.env.VITE_API_KEY_JAVA
-                        }/user-service/register`,
+                          import.meta.env.VITE_API_KEY_NODE
+                        }/user-service/users/register`,
                         values
                       )
                       .then((res) => {
                         if (res.data.status === "SUCCESS") {
-                          console.log(res.headers.authorization);
-                          localStorage.setItem(
-                            "token",
-                            res.headers.authorization
-                          );
+                          console.log(res.data.data);
+                          localStorage.setItem("token", res.data.data);
                           setOpen(false);
-                          values["userId"] = res.data.data.id;
-                          setData({ ...values, ...data });
+                          // values["userId"] = res.data.data;
+                          // setData({ ...values, ...data });
                           navigate("/customer-info", { replace: true });
                         }
                       })
                       .catch((err) => {
                         setOpen(false);
-                        setStatus(err.response.data.error.message);
+                        setStatus(err.response.data.message);
                       });
                   }}
                 >

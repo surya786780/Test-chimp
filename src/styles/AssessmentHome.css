@@ -13,7 +13,7 @@
   margin-top: 10px;
 }
 .Plusicon {
-  padding: 0 18px;
+  /* margin: 0 3px; */
   background-color: #46a997;
   color: white;
   display: flex;
@@ -72,6 +72,7 @@
   align-items: center;
 }
 .footer {
+  margin-top: 140px;
   min-height: 110px;
   color: inherit;
   border-top: 1px solid #d5d3d3;
@@ -120,6 +121,7 @@
 }
 /* //! free card */
 .card {
+  box-shadow: 0 4px 16px #0003;
   width: 290px;
   background-color: white;
   padding: 20px;
@@ -171,6 +173,9 @@
 
 /* //? innerProfile */
 .innerProfile {
-  padding: 24px;
-  background-color: white;
+  /* margin: 0 48px; */
+  /* padding: 12px 64px; */
+  padding: 0px 73px 0 113px;
+  /* background-color: white; */
+  height: 100vh;
 }
