@@ -36,7 +36,7 @@ function CandidateTestData() {
       <div className="innerProfile bg-gray">
         <div className=" pt-4 d-flex justify-content-between sub-comps pb-5  border-bottem">
           <div className="back-nav d-flex fs-6">
-            <Link to="/customer/assessment" className="link">
+            <Link to="/customer/candidate" className="link">
               <div className="border bg-white me-4 cursor-pointer">
                 <span className="material-symbols-outlined fs-3 back-arrow">
                   chevron_left
@@ -57,7 +57,7 @@ function CandidateTestData() {
             <div className="">
               <FormControl sx={{ m: 1, minWidth: 300 }}>
                 <InputLabel id="demo-select-small">
-                  "Invite for an assignment
+                  Invite for an assignment
                 </InputLabel>
                 <Select
                   labelId="demo-select-small"
@@ -65,7 +65,7 @@ function CandidateTestData() {
                   value={details.assignmentInvite}
                   label="Invite for an assignment"
                   onChange={handleChange}
-                  name="language"
+                  name="assignmentInvite"
                 >
                   <MenuItem value="">
                     <em>None</em>
@@ -76,7 +76,15 @@ function CandidateTestData() {
                 </Select>
               </FormControl>
             </div>
-            <div className="invite">Invite</div>
+            <div
+              className={`invite conditioned-btn ${
+                details.assignmentInvite.length > 0
+                  ? "valid-btn cursor-pointer"
+                  : "invalid-btn"
+              }`}
+            >
+              Invite
+            </div>
           </div>
         </div>
         <CandidateAssessmentReview />

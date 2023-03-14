@@ -1,12 +1,16 @@
-.invite {
+.conditioned-btn {
   padding: 16px 27px;
-  background: #dadada;
   height: fit-content;
   margin-top: 7px;
   border-radius: 7px;
   color: white;
 }
-
+.invalid-btn {
+  background: #dadada;
+}
+.valid-btn {
+  background-color: #46a997;
+}
 /* //? CandidateAssessmentReview */
 .CandidateAssessmentReview {
   margin-top: 150px;
@@ -24,4 +28,16 @@
 }
 .Review3 {
   width: 35%;
+}
+.small-padding {
+  padding: 0px 6px;
+}
+.yes {
+  background-color: rgb(80, 245, 80);
+}
+.no {
+  background-color: rgb(255, 12, 12);
+}
+.star-rating {
+  line-height: 0 !important;
 }

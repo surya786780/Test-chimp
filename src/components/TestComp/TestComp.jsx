@@ -10,6 +10,7 @@ import Select from "@mui/material/Select";
 import FreeCard from "../FreeCard/FreeCard";
 import Navbar from "../Navbar/Navbar";
 import CreateNewAssessmentBtn from "../CreateNewAssessmentBtn/CreateNewAssessmentBtn";
+import SupportBtn from "../SupportBtn";
 
 function TestComp() {
   const [details, setDetails] = React.useState({
@@ -114,12 +115,14 @@ function TestComp() {
 
           <div className="cardsDiv d-flex">
             <FreeCard />
+            {/* <FreeCard />
             <FreeCard />
-            <FreeCard />
-            <FreeCard />
+            <FreeCard /> */}
           </div>
         </div>
+        <div className="footer"></div>
       </div>
+      <SupportBtn />
     </>
   );
 }

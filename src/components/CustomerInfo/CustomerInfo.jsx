@@ -182,7 +182,7 @@ function Signup_Details() {
 
                     <FormControl sx={{ mt: 3, minWidth: 510 }}>
                       <InputLabel id="demo-select-small">
-                        "What Applicant Tracking System are you using?
+                        What Applicant Tracking System are you using?
                       </InputLabel>
                       <Select
                         labelId="demo-select-small"

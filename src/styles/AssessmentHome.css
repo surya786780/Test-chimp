@@ -154,10 +154,6 @@
   font-size: 20px;
   color: gray;
 }
-.material-symbols-outlined {
-  margin-right: 0 !important;
-  z-index: 99;
-}
 .testDetails {
   display: flex;
   margin: 0 16px;
@@ -177,5 +173,5 @@
   /* padding: 12px 64px; */
   padding: 0px 73px 0 113px;
   /* background-color: white; */
-  height: 100vh;
+  min-height: 100vh;
 }

@@ -32,7 +32,7 @@ function InviteTeam() {
           <div className="invite_link">
             <TextField
               fullWidth
-              label="Work Email *"
+              label="Work Email "
               name="email"
               id="fullWidth"
               value=""
@@ -40,7 +40,7 @@ function InviteTeam() {
             />
             <TextField
               fullWidth
-              label="Work Email *"
+              label="Work Email "
               name="email"
               id="fullWidth"
               value=""
@@ -48,7 +48,7 @@ function InviteTeam() {
             />
             <TextField
               fullWidth
-              label="Work Email *"
+              label="Work Email "
               name="email"
               id="fullWidth"
               value=""
@@ -56,7 +56,7 @@ function InviteTeam() {
             />
             <TextField
               fullWidth
-              label="Work Email *"
+              label="Work Email "
               name="email"
               id="fullWidth"
               value=""

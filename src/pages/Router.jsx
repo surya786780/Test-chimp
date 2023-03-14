@@ -5,7 +5,7 @@ import HiringPlan from "../components/HiringPlan/HiringPlan";
 import InviteTeam from "../components/InviteTeam/InviteTeam";
 import Login from "../components/Login/Login";
 import CompanySize from "../components/CompanySize/CompanySize";
-import ResetPassword from "../components/Reset Password/ResetPassword";
+import ResetPassword from "../components/ResetPassword/ResetPassword";
 import CustomerInfo from "../components/CustomerInfo/CustomerInfo";
 import SetPassword from "../components/SetPassword/SetPassword";
 import MyAssessment from "../components/MyAssessment/MyAssessment";
@@ -26,12 +26,13 @@ import NameAssessment from "../components/NameAssessment/NameAssessment";
 
 import "../styles/AssessmentHome.css";
 import CandidateTestData from "../components/CandidateTestData/CandidateTestData";
+import ReferAndEarn from "../components/ReferAndEarn/ReferAndEarn";
+import Logout from "../components/Logout/Logout";
 
 export const UserContext = createContext();
 
 function Router() {
   const [data, setData] = useState({});
-
   return (
     <UserContext.Provider value={[data, setData]}>
       <Routes>
@@ -66,6 +67,8 @@ function Router() {
           path="/profile/assessment-settings"
           element={<AssessmentSettings />}
         ></Route>
+        <Route path="/profile/refer-earn" element={<ReferAndEarn />}></Route>
+        <Route path="/profile/logout" element={<Logout />}></Route>
         <Route
           path="/customer/assessment/name-assessment"
           element={<NameAssessment />}

@@ -10,15 +10,15 @@ export const profileValue = [
   "Log out",
 ];
 export const profileIcon = [
-  <span className="material-symbols-outlined">account_circle</span>,
-  <span className="material-symbols-outlined">notifications_active</span>,
-  <span className="material-symbols-outlined">apartment</span>,
-  <span className="material-symbols-outlined">groups</span>,
-  <span className="material-symbols-outlined">credit_card</span>,
-  <span className="material-symbols-outlined">desktop_mac</span>,
-  <span className="material-symbols-outlined">settings</span>,
-  <span className="material-symbols-outlined">diversity_3</span>,
-  <span className="material-symbols-outlined">power_settings_new</span>,
+  "account_circle",
+  "notifications_active",
+  "apartment",
+  "groups",
+  "credit_card",
+  "desktop_mac",
+  "settings",
+  "diversity_3",
+  "power_settings_new",
 ];
 
 export const profileRoutes = [
@@ -29,4 +29,6 @@ export const profileRoutes = [
   "/profile/plan-and-billing",
   "/profile/integration",
   "/profile/assessment-settings",
+  "/profile/refer-earn",
+  "/profile/logout",
 ];

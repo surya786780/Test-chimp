@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import IconButton from "@mui/material/IconButton";
@@ -31,7 +31,7 @@ function Login() {
   const [status, setStatus] = useState("");
   const [err, setErr] = useState("");
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
+  const navigate = useNavigate();
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -61,11 +61,12 @@ function Login() {
           },
         }
       );
-      const { status } = userData.data || {};
+      localStorage.setItem("userDetails", JSON.stringify(userData.data.data));
+      const status = userData.data.status || {};
 
       if (status === "SUCCESS") {
-        console.log(status);
-        toast.success("Link sent successfully", {
+        localStorage.setItem("token", userData.data.data.accessToken);
+        toast.success("Login successfully", {
           position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -75,11 +76,12 @@ function Login() {
           progress: undefined,
           theme: "light",
         });
-        navigate("/customer/assessment", { replace: true });
+        console.log(userData);
+        navigate("/customer/assessment");
       }
     } catch (e) {
       setOpen(false);
-      setErr(e.response.data.message);
+      setErr(e.response);
     }
   }
 

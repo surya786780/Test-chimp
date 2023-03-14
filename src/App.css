@@ -1,6 +1,5 @@
-body {
-  margin: 0;
-  padding: 0;
+body::-webkit-scrollbar {
+  display: none;
 }
 p {
   margin: 0;
@@ -27,7 +26,7 @@ p {
   bottom: 0;
   display: flex;
   align-items: center;
-  font-size: 1.07143rem;
+  font-size: 1.07rem;
   background-color: #276678;
   width: 145px;
   bottom: 0;
@@ -35,6 +34,7 @@ p {
   position: fixed;
   margin-bottom: 20px;
   margin-right: 20px;
+  z-index: 44;
 }
 .font-small {
   font-size: 14px;
@@ -47,6 +47,9 @@ p {
 }
 .pri-bgcolor {
   background-color: #46a997;
+}
+.bg-darkBlue {
+  background-color: #266678;
 }
 .border-top {
   border-top: 1px solid #dff5f1;
@@ -63,6 +66,9 @@ p {
 .color-gray {
   color: gray;
 }
+.star-color {
+  color: #d2d2d2;
+}
 .danger {
   color: red;
   font-size: 14px;
@@ -78,12 +84,25 @@ p {
 .link {
   text-decoration: none;
   color: black;
+  height: 100%;
+}
+.border-top-4 {
+  border-top: 4px solid #266678;
+}
+.border-bottom-2 {
+  border-bottom: 2px solid #266678;
 }
 .link:hover {
   color: black;
 }
+.mtop-1 {
+  margin-top: -1rem;
+}
 .w-fitContent {
   width: fit-content;
+}
+.w-50 {
+  width: 50%;
 }
 .b-radius-6 {
   border-radius: 6px;
@@ -97,12 +116,40 @@ p {
   width: 100%;
 }
 .material-symbols-outlined {
-  z-index: 0 !important;
+  margin-right: 0 !important;
+  z-index: 1;
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" -25, "opsz" 40;
 }
 .border-bottem {
   border-bottom: 1px solid gray;
+}
+.border-top {
+  border-top: 1px solid gray;
+}
+.box-shadow {
   box-shadow: 0 4px 16px rgba(171, 171, 171, 0.2);
 }
 .h-fit {
   height: fit-content;
+}
+.h-100vh {
+  height: 100vh;
+}
+.close-btn {
+  color: #000000de;
+  background-color: #ededed;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.save-btn {
+  background-color: #46a997;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+.modal-padding {
+  padding: 8px 13px !important;
+}
+button:disabled {
+  opacity: 0.35;
 }

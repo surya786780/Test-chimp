@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CreateNewAssessmentBtn from "../CreateNewAssessmentBtn/CreateNewAssessmentBtn";
 import Navbar from "../Navbar/Navbar";
 import "../../styles/AssessmentHome.css";
+import SupportBtn from "../SupportBtn";
 function MyAssessment() {
   const [activeComp, setActiveComp] = useState(1);
   return (
@@ -50,7 +51,9 @@ function MyAssessment() {
             )}
           </div>
         </div>
+        <div className="footer"></div>
       </div>
+      <SupportBtn />
     </>
   );
 }

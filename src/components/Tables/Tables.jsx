@@ -11,6 +11,8 @@ function Tables() {
   const rows = [1, 2, 3];
   const d = localStorage.getItem("userDetails");
   const values = JSON.parse(d);
+
+  const icons = ["mail", "edit", "minimize"];
   return (
     <div className="mt-4">
       <TableContainer component={Paper}>
@@ -30,29 +32,33 @@ function Tables() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row, index) => (
-              <TableRow
-                key={index}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  <div className="sec-bgcolor p-1 w-fitContent text-light b-radius-6">
-                    {values.role.type}
-                  </div>
-                </TableCell>
-                <TableCell align="center">
-                  {values.firstName + values.lastName}
-                </TableCell>
-                <TableCell align="center">{values.email}</TableCell>
-                <TableCell align="center">
-                  <div className="actions d-flex align-item-center justify-content-around">
-                    <span className="material-symbols-outlined">mail</span>
-                    <span className="material-symbols-outlined">edit</span>
-                    <span className="material-symbols-outlined">minimize</span>
-                  </div>
-                </TableCell>
-              </TableRow>
-            ))}
+            <TableRow
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                <div className="sec-bgcolor p-1 w-fitContent text-light b-radius-6">
+                  {values.role.type}
+                </div>
+              </TableCell>
+              <TableCell align="center">
+                {values.firstName + values.lastName}
+              </TableCell>
+              <TableCell align="center">{values.email}</TableCell>
+              <TableCell align="center">
+                <div className="actions d-flex align-item-center justify-content-around">
+                  {icons.map((e, index) => {
+                    return (
+                      <span
+                        key={index}
+                        className="material-symbols-outlined star-color"
+                      >
+                        {e}
+                      </span>
+                    );
+                  })}
+                </div>
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </TableContainer>

@@ -100,7 +100,7 @@ function LandingPageBody() {
       </div>
 
       <div className="qualityCandidates d-flex pt-5 pb-5">
-        <div className="qualityCandidates-content d-flex">
+        <div className="qualityCandidates-content">
           <h1>
             Quality time for <br />
             quality candidates.

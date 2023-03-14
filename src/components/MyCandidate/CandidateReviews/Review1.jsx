@@ -21,10 +21,10 @@ function Review1() {
       <div className="invited ">
         {title.map((t, index) => {
           return (
-            <>
+            <div key={index}>
               <p className="fw-bold font-small mb-2">{t}</p>
               <p className="font-small mb-4">{body[index]}</p>
-            </>
+            </div>
           );
         })}
       </div>

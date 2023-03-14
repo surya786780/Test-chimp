@@ -9,9 +9,10 @@
 .navInner {
   display: flex;
   margin: 0 48px;
+}
+.logoNac {
   padding: 12px 64px;
 }
-
 .navLogo {
   width: 154px;
   height: 60px;
@@ -25,7 +26,7 @@
   list-style: none;
 }
 .list {
-  width: 88%;
+  width: 90%;
   justify-content: space-between;
 }
 .ul li {
@@ -72,11 +73,8 @@
 .clientName button {
   color: black;
 }
-.ul li:hover {
-  text-decoration: underline;
-}
+
 .dropDownProfile {
-  /* width: -webkit-fill-available; */
   margin-right: 25px;
 }
 

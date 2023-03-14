@@ -22,14 +22,24 @@ function Review3() {
       <div className="monitor">
         <div className="anti-cheating d-flex justify-content-between mb-4">
           <p className="fw-bold font-small">Anti cheating monitor</p>
-          <span class="material-symbols-outlined">help</span>
+          <span className="material-symbols-outlined">help</span>
         </div>
         <div className="monitors">
           {qus.map((t, index) => {
             return (
-              <div className="d-flex justify-content-between">
+              <div key={index} className="d-flex justify-content-between">
                 <p className="fw-bold font-small mb-2">{t}</p>
-                <p className="font-small mb-4">{ans[index]}</p>
+                <p
+                  className={`font-small mb-4 small-padding fw-bold ${
+                    index > 1
+                      ? ans[index] == "yes"
+                        ? "text-light yes"
+                        : "text-light  no"
+                      : ""
+                  }`}
+                >
+                  {ans[index]}
+                </p>
               </div>
             );
           })}

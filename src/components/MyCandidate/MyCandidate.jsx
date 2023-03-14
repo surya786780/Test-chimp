@@ -13,6 +13,7 @@ import CreateNewAssessmentBtn from "../CreateNewAssessmentBtn/CreateNewAssessmen
 import "../../styles/AssessmentHome.css";
 import CandidatePage from "./CandidatePage";
 import MyCandidateNotAssigned from "./MyCandidateNotAssigned";
+import SupportBtn from "../SupportBtn";
 
 function MyCandidate() {
   const [isCandidateAssigned, setCandidateAssigned] = useState(true);
@@ -135,7 +136,9 @@ function MyCandidate() {
             </>
           )}
         </div>
+        <div className="footer"></div>
       </div>
+      <SupportBtn />
     </>
   );
 }

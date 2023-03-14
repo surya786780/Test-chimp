@@ -17,21 +17,32 @@ import SupportBtn from "../SupportBtn";
 import SaveChangesBtn from "../SaveChangesBtn/SaveChangesBtn";
 import FullProfile from "../../pages/FullProfile";
 import Navbar from "../Navbar/Navbar";
+import ChangeEmailModal from "../Modal/ChangeEmailModal";
+import ChangePasswordModal from "../Modal/ChangePasswordModal";
 
 function MyProfile() {
+  const [openEmail, setOpenEmail] = useState(false);
+  const [openPwd, setOpenPwd] = useState(false);
   const [name, setName] = useState();
   const [lastName, setLastName] = useState();
   const [phNo, setPhNo] = useState();
+  const [toolTip, setToolTip] = useState(false);
   const [details, setDetails] = useState({
     language: "",
     jobRole: "",
     testType: "",
   });
 
+  const removeModalEmail = () => {
+    setOpenEmail(false);
+  };
+  const removeModalPwd = () => {
+    setOpenPwd(false);
+  };
   useEffect(() => {
     const d = localStorage.getItem("userDetails");
     const values = JSON.parse(d);
-    console.log(d);
+    // console.log(d);
     setName(values.firstName);
     setLastName(values.lastName);
     setPhNo(values.phoneNumber);
@@ -45,6 +56,36 @@ function MyProfile() {
     }));
   };
 
+  async function saveChanges() {
+    console.log("hit");
+    try {
+      const url = `${
+        import.meta.env.VITE_API_KEY_NODE
+      }/user-service/update/profile`;
+      const userData = await axios.patch(
+        url,
+        {
+          firstName: name,
+          lastName: lastName,
+          phoneNumber: phNo,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token") || "",
+          },
+        }
+      );
+      const status = userData.status || {};
+
+      console.log("status", status);
+      if (status == 200) {
+        localStorage.setItem("data", userData);
+        console.log("userData", userData);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }
   return (
     <Fragment>
       {name || lastName || phNo ? (
@@ -65,7 +106,7 @@ function MyProfile() {
                     autoComplete="off"
                   >
                     <TextField
-                      id="outlined-basic"
+                      id="outlined-basic-1"
                       label="First name"
                       variant="outlined"
                       className="me-4"
@@ -73,20 +114,19 @@ function MyProfile() {
                       onChange={(e) => setName(e.target.value)}
                     />
                     <TextField
-                      id="outlined-basic"
+                      id="outlined-basic-2"
                       label="Last name"
                       variant="outlined"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                     />
                     <TextField
-                      id="outlined-basic"
+                      id="outlined-basic-3"
                       label="Phone number"
                       variant="outlined"
                       className="mt-4"
                       value={phNo}
                       onChange={(e) => setPhNo(e.target.value)}
-                      // value={values.phoneNumber}
                     />
                   </Box>
                 </div>
@@ -129,9 +169,20 @@ function MyProfile() {
                         <Tooltip
                           disableFocusListener
                           disableTouchListener
-                          title="Your gmail is connected with google account , you cannot change your password"
+                          title={
+                            toolTip
+                              ? `Your gmail is connected with google account , you cannot change your password`
+                              : `You can change your password`
+                          }
                         >
-                          <Button>Change password</Button>
+                          <Button
+                            onClick={() => {
+                              setOpenPwd(true);
+                            }}
+                            className="fw-bold text-dark"
+                          >
+                            Change password
+                          </Button>
                         </Tooltip>
                       </Grid>
                       <Grid item></Grid>
@@ -139,15 +190,47 @@ function MyProfile() {
                         <Tooltip
                           disableFocusListener
                           disableTouchListener
-                          title="Your gmail is connected with google account , you cannot change your email"
+                          title={
+                            toolTip
+                              ? `Your gmail is connected with google account , you cannot change your email`
+                              : `You can change your email`
+                          }
                         >
-                          <Button>Change email</Button>
+                          <Button
+                            onClick={() => {
+                              setOpenEmail(true);
+                            }}
+                            className="fw-bold text-dark"
+                          >
+                            Change email
+                          </Button>
                         </Tooltip>
                       </Grid>
                       <Grid item></Grid>
                     </Grid>
                   </div>
-                  <SaveChangesBtn />
+                  {openPwd ? (
+                    <ChangePasswordModal
+                      isActivate={true}
+                      removeModal={removeModalPwd}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                  {openEmail ? (
+                    <ChangeEmailModal
+                      isActivate={true}
+                      removeModal={removeModalEmail}
+                    />
+                  ) : (
+                    <></>
+                  )}
+                  <div
+                    className="saveChanges cursor-pointer"
+                    onClick={saveChanges}
+                  >
+                    <SaveChangesBtn />
+                  </div>
                 </div>
               </div>
             </div>
